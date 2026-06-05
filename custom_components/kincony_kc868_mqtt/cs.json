@@ -1,0 +1,51 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "KinCony KC868 MQTT Controller",
+        "description": "Nastav MQTT topic. Integrace počká na první retained zprávu STATE a podle ní zjistí dostupné vstupy/výstupy.",
+        "data": {
+          "name": "Název zařízení",
+          "host": "IP adresa zařízení (volitelné)",
+          "model": "Model",
+          "mqtt_prefix": "MQTT prefix",
+          "state_topic": "Topic se stavem (volitelné)",
+          "command_topic": "Topic pro příkazy (volitelné)",
+          "refresh_payload": "Příkaz pro nové načtení stavu (volitelné)"
+        },
+        "data_description": {
+          "mqtt_prefix": "Příklad: KC868_A16/ECC9FF002428. Pokud topic necháš prázdný, automaticky se doplní STATE a SET.",
+          "refresh_payload": "Volitelný MQTT příkaz odeslaný po startu integrace. Když funguje retained STATE, nech prázdné."
+        }
+      },
+      "mapping": {
+        "title": "Mapování I/O",
+        "description": "Zjištěno: {inputs} vstupů, {outputs} výstupů, {adcs} ADC kanálů, {sensors} bloků senzorů. Uprav JSON mapování. Nastav enabled=true a vyber type. Vstupy podporují binary_sensor. Výstupy podporují switch, light, button. Cover entity se záměrně nevytvářejí.",
+        "data": {
+          "mapping_json": "JSON mapování"
+        }
+      }
+    },
+    "error": {
+      "no_state_message": "Nepřišla žádná MQTT zpráva STATE. Zkontroluj topic, broker a retained STATE zprávu.",
+      "invalid_mapping": "JSON mapování je neplatné."
+    },
+    "abort": {
+      "already_configured": "Tento MQTT prefix už je nastavený."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Upravit mapování I/O",
+        "description": "Uprav JSON mapování. Po změně typů entit integraci znovu načti nebo restartuj HA.",
+        "data": {
+          "mapping_json": "JSON mapování"
+        }
+      }
+    },
+    "error": {
+      "invalid_mapping": "JSON mapování je neplatné."
+    }
+  }
+}
