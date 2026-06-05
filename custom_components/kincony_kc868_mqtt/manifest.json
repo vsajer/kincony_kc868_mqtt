@@ -1,0 +1,12 @@
+{
+  "domain": "kincony_kc868_mqtt",
+  "name": "KinCony KC868 MQTT Controller",
+  "codeowners": ["@vsajer"],
+  "config_flow": true,
+  "dependencies": ["mqtt"],
+  "documentation": "https://github.com/vsajer/kincony-kc868-mqtt",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/vsajer/kincony-kc868-mqtt/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

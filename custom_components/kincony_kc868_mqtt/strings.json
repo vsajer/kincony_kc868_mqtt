@@ -1,0 +1,51 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "KinCony KC868 MQTT Controller",
+        "description": "Configure MQTT topics. The integration will wait for the first retained STATE message and detect available I/O.",
+        "data": {
+          "name": "Device name",
+          "host": "Device IP address (optional)",
+          "model": "Model",
+          "mqtt_prefix": "MQTT prefix",
+          "state_topic": "State topic (optional)",
+          "command_topic": "Command topic (optional)",
+          "refresh_payload": "Refresh command payload (optional)"
+        },
+        "data_description": {
+          "mqtt_prefix": "Example: KC868_A16/ECC9FF002428. If topics are left empty, STATE and SET are appended automatically.",
+          "refresh_payload": "Optional MQTT command sent after integration startup. Leave empty when retained STATE works."
+        }
+      },
+      "mapping": {
+        "title": "I/O mapping",
+        "description": "Detected: {inputs} inputs, {outputs} outputs, {adcs} ADC channels, {sensors} sensor blocks. Edit the JSON mapping. Set enabled=true and choose type. Inputs support binary_sensor. Outputs support switch, light, button. Cover entities are intentionally not created.",
+        "data": {
+          "mapping_json": "Mapping JSON"
+        }
+      }
+    },
+    "error": {
+      "no_state_message": "No MQTT STATE message was received. Check topic, broker and whether the retained STATE message exists.",
+      "invalid_mapping": "Mapping JSON is invalid."
+    },
+    "abort": {
+      "already_configured": "This MQTT prefix is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Edit I/O mapping",
+        "description": "Edit the JSON mapping. Restart/reload the integration after changing entity types.",
+        "data": {
+          "mapping_json": "Mapping JSON"
+        }
+      }
+    },
+    "error": {
+      "invalid_mapping": "Mapping JSON is invalid."
+    }
+  }
+}
