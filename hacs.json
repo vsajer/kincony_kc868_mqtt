@@ -1,0 +1,6 @@
+{
+  "name": "KinCony KC868 MQTT Controller",
+  "render_readme": true,
+  "domains": ["kincony_kc868_mqtt"],
+  "homeassistant": "2025.1.0"
+}
